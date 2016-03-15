@@ -108,3 +108,18 @@
 .coveo-modalBox.coveo-fullscreen.coveo-noButton > .coveo-wrapper > .coveo-body {
   bottom:0;
 }
+
+.coveo-modalBox > .coveo-wrapper > .coveo-buttons {
+  text-align: center;
+  background: #f6f6f6;
+  color: #404040;
+}
+
+.coveo-modalBox > .coveo-wrapper > .coveo-buttons .coveo-button {
+  display: inline-block;
+  padding: 8px 16px;
+  cursor: pointer;
+  background: #404040;
+  color: #f6f6f6;
+  margin: 0 16px;
+}

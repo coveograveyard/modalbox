@@ -49,15 +49,15 @@ module Coveo.ModalBox {
    */
   export interface Options {
     /**
-     * Specify if you wish to open the modal full width and full height
+     * Specify if you wish to open the modal box full screen. Default is `false`. If false, the modal box will fit the size of the content.
      */
     fullscreen?: boolean;
     /**
-     * The string that you want to display over the close button
+     * Specify that you wish the modal box to close when the user click on the title. Default is `false`.
      */
     titleClose?: boolean;
     /**
-     * Specify if you wish to close the modal box when the overlay (black background) is clicked
+     * Specify if you wish to close the modal box when the overlay (black background) is clicked. Default is `false`.
      */
     overlayClose?: boolean;
     /**
@@ -86,6 +86,12 @@ module Coveo.ModalBox {
 
   var closeFunctions: { (button?: BUTTON, forceClose?: boolean): boolean }[] = [];
 
+  /**
+   * Open a modal box with the given content
+   * @param content The content to display, as an HTMLElement
+   * @param options The {@link Options} to use for this modal box
+   * @returns {{modalBox: (HTMLDivElement|HTMLElement), overlay: (HTMLDivElement|HTMLElement), wrapper: (HTMLDivElement|HTMLElement), buttons: HTMLElement, content: HTMLElement, close: (function(BUTTON=, boolean=): (boolean|boolean))}}
+   */
   export function open(content: HTMLElement, options: Options = <Options>{}): ModalBox {
     var body = options.body || document.body;
     body.className = 'coveo-modalBox-opened';
@@ -136,19 +142,17 @@ module Coveo.ModalBox {
       return false;
     };
 
-
     var buttonsContainer: HTMLElement;
     var buildButton = (text: string, type: BUTTON) => {
       var btn = document.createElement('div');
       btn.className = 'coveo-button';
       btn.textContent = text;
-      btn.addEventListener('click', ()=> buttonClick(type));
+      btn.addEventListener('click', ()=> close(type));
       buttonsContainer.appendChild(btn);
     }
     if (options.buttons != null) {
-      var buttonClick = (button: BUTTON) => () => close(button);
       buttonsContainer = document.createElement('div');
-      buttonsContainer.className = 'coveo-button';
+      buttonsContainer.className = 'coveo-buttons';
       wrapper.appendChild(buttonsContainer);
 
       if (options.buttons & BUTTON.OK) {
@@ -170,10 +174,10 @@ module Coveo.ModalBox {
     closeFunctions.push(close);
 
     if (options.overlayClose === true) {
-      overlay.click(() => close())
+      overlay.addEventListener('click', (e: Event)=> close());
     }
     if (options.className != null) {
-      modalBox.addClass(options.className)
+      modalBox.className += options.className;
     }
 
     return {
@@ -186,6 +190,10 @@ module Coveo.ModalBox {
     }
   }
 
+  /**
+   * Close all open modal box instance
+   * @param forceClose Will skip validation
+   */
   export function close(forceClose: boolean = false) {
     var i = 0;
     while (closeFunctions.length > i) {
@@ -199,6 +207,4 @@ module Coveo.ModalBox {
   function removeClassName(el: HTMLElement, className: string) {
     el.className = el.className.replace(new RegExp(`(^|\\s)${className}(\\s|\\b)`, 'g'), '$1');
   }
-
-
 }

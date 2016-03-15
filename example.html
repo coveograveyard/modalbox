@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="bin/ModalBox.js"></script>
+    <link rel="stylesheet" href="bin/modalBox.css"/>
+  </head>
+  <body>
+    <button id="open">Sample modal box</button>
+    <button id="open2">Sample modal box with title, button and confirmation</button>
+    <script>
+      document.getElementById('open').addEventListener('click', function () {
+        var content = document.createElement('iframe');
+        content.src = 'http://www.coveo.com/';
+        content.style.width = '1000px';
+        content.style.height = '800px';
+        Coveo.ModalBox.open(content, {
+          overlayClose: true
+        });
+      })
+
+      document.getElementById('open2').addEventListener('click', function () {
+        var content = document.createElement('iframe');
+        content.src = 'http://www.coveo.com/';
+        content.style.width = '1000px';
+        content.style.height = '800px';
+        Coveo.ModalBox.open(content, {
+          overlayClose: true,
+          titleClose : true,
+          title : 'Some title for the modal box',
+          buttons: Coveo.ModalBox.BUTTON.APPLY | Coveo.ModalBox.BUTTON.CANCEL,
+          validation: function (button) {
+            if (button == Coveo.ModalBox.BUTTON.APPLY) {
+              return confirm('Just using very basic standard confirm ...')
+            }
+            return true;
+          }
+        });
+      })
+    </script>
+  </body>
+</html>
