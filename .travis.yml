@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+- 4.2.2
+before_script:
+- npm install -g gulp
+script:
+- gulp
+cache:
+  directories:
+  - node_modules
+notifications:
+  email:
+    on_success: never
+    on_failure: never
+deploy:
+  provider: npm
+  email: sandbox_JSUI@coveo.com
+  api_key:
+    secure: ONDxxwTK3YSs6GDMvb/cHKtBpgbBCEjCviUzkvEugCfuDSJJ6oeXvVCvqxMDD8zTt0jIJanB/wuHarfZcLAz/D2Ry19Mck88YnAUwmyA6Sdag8nmBkz27oRQsNV6dLGl8SUSC6ScWF/z4eJ9WlDn7JQsNWxkZMhwaEu8D2YqZCKFMUSwh4gcQX9PmWcXzp+Y5LJZ/nnjhqT9UD6vK6uf6rGvYuqahiy6Qgdc2+INq0s1Fmo65DyfFFzE4qKFxUKaei+okIqHbC2ufYRJGA8iSnymjMvosEBrqes+h0Ae57Dkir1GCJymab1+iEdApHRYRbLK6NU2oRzNFuaZcteQSMyAgH9f6GpcoudtziXkawPkEzh+/hAzQmdX0EgAxqJBklNEGVxgxBmDnRbHjUo9XGLctEUdwB4lJw5wvEs37hNWQHg7LgigLPaGnHdIHrH0H/SKaHLGWdTmvVIthqbXvBGlHWza0MYw3LtLl9Zvxdf8adK4+iJDFoNVUgNvk4Ck5hOwl9Jg8a/q4NFSO8VmdgCqQ0nCPneP8t+L0llg2QyldgKjY9VbD5ScAabW3j8bS/a6enGek7u4xVnnSMPsk/zBneRZQKnyQwxYBZItqogsZHtkIimxk5zgryHap5+AzN0tLjRQB257hJCY1CFiPFO7WmceKOplxfx76+g7GmA=
+  on:
+    tags: true
+    repo: coveo/modalbox
