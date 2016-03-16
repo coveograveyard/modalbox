@@ -1,6 +1,12 @@
 # Modal box
 > A simple utility to display modal box
 
+## Installation
+
+npm --save modal-box
+
+Include the downloaded script in your page.
+
 ## Initialization
 See example.html for some examples
 

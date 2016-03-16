@@ -1,7 +1,7 @@
 {
-  "name": "coveo-modalbox",
+  "name": "modal-box",
   "version": "1.0.0",
-  "description": "Small utility to display a modal box",
+  "description": "Small utility lib to display a modal box",
   "main": "index.js",
   "scripts": {
     "test": "gulp test"
@@ -9,7 +9,9 @@
   "keywords": [
     "modal",
     "modalbox",
-    "popup"
+    "popup",
+    "overlay",
+    "confirm"
   ],
   "author": "Coveo <sandbox_JSUI@coveo.com> (http://source.coveo.com/)",
   "license": "Apache-2.0",
