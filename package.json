@@ -6,6 +6,10 @@
   "scripts": {
     "test": "gulp test"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/coveo/modalbox.git"
+  },
   "keywords": [
     "modal",
     "modalbox",
