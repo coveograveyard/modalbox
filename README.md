@@ -1,4 +1,4 @@
-# Modal box
+# Modal box [![Build Status](https://travis-ci.org/coveo/modalbox.svg?branch=master)](https://travis-ci.org/coveo/modalbox)
 > A simple utility to display modal box
 
 ## Installation
