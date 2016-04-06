@@ -177,7 +177,7 @@ module Coveo.ModalBox {
       overlay.addEventListener('click', (e: Event)=> close());
     }
     if (options.className != null) {
-      modalBox.className += options.className;
+      modalBox.className += ' ' + options.className;
     }
 
     return {
