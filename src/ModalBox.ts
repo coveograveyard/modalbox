@@ -134,7 +134,7 @@ module Coveo.ModalBox {
         if (index >= 0) {
           closeFunctions.splice(index, 1);
         }
-        if (body.querySelector('.coveo-modalBox') != undefined) {
+        if (body.querySelector('.coveo-modalBox') == null) {
           removeClassName(body, 'coveo-modalBox-opened');
         }
         return true;
