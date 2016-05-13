@@ -1,4 +1,4 @@
-module Coveo {
+module Coveo.ModalBox {
 
   /**
    * The button to use when creating a ModalBox
