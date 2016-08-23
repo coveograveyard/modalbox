@@ -95,7 +95,9 @@ module Coveo.ModalBox {
   export function open(content: HTMLElement, options: Options = <Options>{}): ModalBox {
     var body = options.body || document.body;
     if(body.className) {
-      body.className += ' coveo-modalBox-opened';
+      if(body.className.indexOf('coveo-modalBox-opened') == -1) {
+        body.className += ' coveo-modalBox-opened';
+      }
     } else {
       body.className = 'coveo-modalBox-opened';
     }
