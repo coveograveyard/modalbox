@@ -1,6 +1,6 @@
 {
   "name": "modal-box",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Small utility lib to display a modal box",
   "main": "index.js",
   "scripts": {
@@ -23,7 +23,7 @@
   "author": "Coveo <sandbox_JSUI@coveo.com> (http://source.coveo.com/)",
   "license": "Apache-2.0",
   "devDependencies": {
-    "coveo-styleguide": "^1.13.4",
+    "coveo-styleguide": "1.13.4",
     "gulp": "^3.9.0",
     "gulp-concat": "^2.4.3",
     "gulp-typescript": "^2.8.2",
