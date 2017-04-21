@@ -4,7 +4,7 @@ var uglify = require('gulp-uglify');
 var merge = require('merge2');
 var concat = require('gulp-concat');
 
-gulp.task('default', ['uglify', 'css']);
+gulp.task('default', ['uglify']);
 
 gulp.task('compile', function() {
   var result = gulp.src('src/ModalBox.ts')
@@ -29,11 +29,6 @@ gulp.task('uglify', ['compile'], function() {
   return gulp.src('bin/ModalBox.js')
       .pipe(concat('ModalBox.min.js'))
       .pipe(uglify())
-      .pipe(gulp.dest('bin/'))
-})
-
-gulp.task('css', function () {
-  return gulp.src('src/modalBox.css')
       .pipe(gulp.dest('bin/'))
 })
 

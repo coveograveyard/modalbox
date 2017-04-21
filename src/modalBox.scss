@@ -1,0 +1,27 @@
+@import "../node_modules/coveo-styleguide/scss/common/font";
+@import "../node_modules/coveo-styleguide/scss/common/palette";
+@import "../node_modules/coveo-styleguide/scss/variables";
+@import "../node_modules/coveo-styleguide/scss/helpers";
+@import "../node_modules/coveo-styleguide/scss/elements/btn";
+@import "../node_modules/coveo-styleguide/scss/components/modal";
+
+.fill-pure-white {
+  fill: #ffffff;
+}
+
+.modal-container {
+  font-family: $base-font-family;
+  .modal-content {
+    transform: scale(0.7);
+    transition: all 0.3s;
+  }
+  &.mod-fade-in-scale {
+    .modal-content {
+      transform: scale(1);
+    }
+  }
+}
+
+.modal-transparent {
+  opacity: 0;
+}
