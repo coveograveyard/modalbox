@@ -5,6 +5,15 @@
 @import "../node_modules/coveo-styleguide/scss/elements/btn";
 @import "../node_modules/coveo-styleguide/scss/components/modal";
 
+@mixin mediaSelector($max){
+  .coveo-media-max-width-#{$max} {
+    @content;
+  }
+  @media (max-width: $max * 1px) {
+    @content;
+  }
+}
+
 .fill-pure-white {
   fill: #ffffff;
 }
@@ -24,4 +33,22 @@
 
 .modal-transparent {
   opacity: 0;
+}
+
+.modal-header h1 {
+  line-height: inherit;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.modal-header {
+  padding: 0 20px;
+  height: 80px;
+  @include mediaSelector(480) {
+    height: 50px;
+  }
+}
+
+.modal-body {
+  padding: 10px 20px;
 }

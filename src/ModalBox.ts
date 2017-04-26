@@ -82,6 +82,10 @@ module Coveo.ModalBox {
      * Specify the content that you wish to put inside the modal box
      */
     body?:HTMLElement;
+    /**
+     * The size for the modal box
+     */
+    sizeMod: 'small' | 'normal' | 'big'
   }
 
   var closeFunctions: { (button?: BUTTON, forceClose?: boolean): boolean }[] = [];
@@ -104,7 +108,14 @@ module Coveo.ModalBox {
     }
 
     var modalBox = document.createElement('div');
-    modalBox.className = 'coveo-modal-container coveo-opened coveo-mod-big';
+    modalBox.className = 'coveo-modal-container coveo-opened ';
+    if (options.sizeMod == 'small') {
+      modalBox.className += ' coveo-mod-small';
+    }
+
+    if (options.sizeMod == 'big') {
+      modalBox.className += ' coveo-mod-big';
+    }
     setTimeout(()=> {
       modalBox.className += ' coveo-mod-fade-in-scale';
     }, 0)
