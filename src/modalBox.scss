@@ -21,6 +21,9 @@
 .modal-container {
   font-family: $base-font-family;
   box-sizing: border-box;
+  * {
+    box-sizing: border-box;
+  }
   .modal-content {
     transform: scale(0.7);
     transition: all 0.3s;
