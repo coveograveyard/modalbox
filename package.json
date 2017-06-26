@@ -1,6 +1,6 @@
 {
   "name": "modal-box",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "description": "Small utility lib to display a modal box",
   "main": "index.js",
   "scripts": {

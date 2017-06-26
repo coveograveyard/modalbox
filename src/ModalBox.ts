@@ -147,7 +147,9 @@ module Coveo.ModalBox {
         if (body.querySelector('.coveo-modal-container') == null) {
           removeClassName(body, 'coveo-modal-opened');
         }
-        overlay.remove();
+        if (overlay.parentNode) {
+          overlay.parentNode.removeChild(overlay);
+        }
         return true;
       }
       return false;
