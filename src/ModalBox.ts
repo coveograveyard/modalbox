@@ -77,11 +77,11 @@ module Coveo.ModalBox {
     /**
      * Specify the title of the modal box
      */
-    title?: string;
+    title?: string | HTMLElement;
     /**
      * Specify the content that you wish to put inside the modal box
      */
-    body?:HTMLElement;
+    body?: HTMLElement;
     /**
      * The size for the modal box
      */
@@ -99,7 +99,7 @@ module Coveo.ModalBox {
   export function open(content: HTMLElement, options: Options = <Options>{}): ModalBox {
     var body = options.body || document.body;
 
-    if(body.className) {
+    if (body.className) {
       if (body.className.indexOf('coveo-modal-opened') == -1) {
         body.className += ' coveo-modal-opened';
       }
@@ -116,7 +116,7 @@ module Coveo.ModalBox {
     if (options.sizeMod == 'big') {
       modalBox.className += ' coveo-mod-big';
     }
-    setTimeout(()=> {
+    setTimeout(() => {
       modalBox.className += ' coveo-mod-fade-in-scale';
     }, 0)
     body.appendChild(modalBox);
@@ -127,7 +127,7 @@ module Coveo.ModalBox {
     var overlay = document.createElement('div');
     overlay.className = 'coveo-modal-backdrop coveo-modal-transparent';
     body.appendChild(overlay);
-    setTimeout(()=> {
+    setTimeout(() => {
       removeClassName(overlay, 'coveo-modal-transparent');
     }, 0);
 
@@ -155,21 +155,21 @@ module Coveo.ModalBox {
       return false;
     };
 
-    var {header, closeIcon} = buildHeader(options, close);
+    var { header, closeIcon } = buildHeader(options, close);
     modalBoxContent.appendChild(header);
 
     modalBoxContent.appendChild(buildBody(options, content));
 
 
-    closeIcon.addEventListener('click', ()=> {
+    closeIcon.addEventListener('click', () => {
       close()
     });
 
-    overlay.addEventListener('click', ()=> {
+    overlay.addEventListener('click', () => {
       close();
     });
 
-    let closeOnEscape = (e)=> {
+    let closeOnEscape = (e) => {
       if (e.keyCode == 27 && body.className.indexOf('coveo-modal-opened') != -1) {
         close();
         document.removeEventListener('keyup', closeOnEscape);
@@ -184,7 +184,7 @@ module Coveo.ModalBox {
       var btn = document.createElement('button');
       btn.className = 'coveo-btn';
       btn.textContent = text;
-      btn.addEventListener('click', ()=> close(type));
+      btn.addEventListener('click', () => close(type));
       buttonsContainer.appendChild(btn);
     }
     if (options.buttons != null) {
@@ -242,12 +242,18 @@ module Coveo.ModalBox {
     var header = document.createElement('header');
     header.className = 'coveo-modal-header';
 
+
     if (options.title != null) {
       var title = document.createElement('h1');
       header.appendChild(title);
-      title.innerHTML = options.title;
+      
+      if (options.title instanceof HTMLElement) {
+        title.appendChild(<HTMLElement>options.title);
+      } else {
+        title.innerHTML = <string>options.title;
+      }
       if (options.titleClose === true) {
-        title.addEventListener('click', ()=> close());
+        title.addEventListener('click', () => close());
       }
     }
 
