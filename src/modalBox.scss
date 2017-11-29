@@ -4,8 +4,7 @@
 @import "../node_modules/coveo-styleguide/scss/helpers";
 @import "../node_modules/coveo-styleguide/scss/elements/btn";
 @import "../node_modules/coveo-styleguide/scss/components/modal";
-
-@mixin mediaSelector($max){
+@mixin mediaSelector($max) {
   .coveo-media-max-width-#{$max} {
     @content;
   }
@@ -13,6 +12,18 @@
     @content;
   }
 }
+
+.coveo-modal-header .coveo-small-close {
+  position: absolute;
+  top: -1.7em;
+  right: 0;
+  cursor: pointer;
+  @media (max-height: 500px) {
+      right: -1.7em;
+      top: 0;
+  }
+}
+
 
 .fill-pure-white {
   fill: #ffffff;
@@ -28,8 +39,8 @@
     transform: scale(0.7);
     transition: all 0.3s;
     @include mediaSelector(480) {
-      width: 80%;
-      height: 80%;
+      width: 85%;
+      height: 90%;
     }
   }
   &.mod-fade-in-scale {
