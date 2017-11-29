@@ -1,6 +1,6 @@
 {
   "name": "modal-box",
-  "version": "2.0.9",
+  "version": "2.0.10",
   "description": "Small utility lib to display a modal box",
   "main": "index.js",
   "scripts": {
@@ -30,8 +30,8 @@
     "gulp-uglify": "^1.0.2",
     "merge2": "^0.3.6",
     "node-sass": "^4.5.2",
-    "postcss-cli": "^3.1.1",
-    "postcss-modules": "^0.6.4",
+    "postcss-cli": "3.1.1",
+    "postcss-modules": "0.6.4",
     "typescript": "1.8.x"
   }
 }
