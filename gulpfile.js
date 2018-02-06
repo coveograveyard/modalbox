@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 var ts = require('gulp-typescript');
-var uglify = require('gulp-uglify');
+var uglify = require('gulp-uglify-es').default;
 var merge = require('merge2');
 var concat = require('gulp-concat');
 
@@ -10,7 +10,8 @@ gulp.task('compile', function() {
   var result = gulp.src('src/ModalBox.ts')
       .pipe(ts({
         declaration: true,
-        out: 'bin/ModalBox.js',
+        module: 'ES2015',
+        target: 'ES5',
         noEmitOnError: true
       }))
 
