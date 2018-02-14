@@ -1,6 +1,6 @@
 {
   "name": "modal-box",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Small utility lib to display a modal box",
   "main": "./bin/ModalBox.min.js",
   "types": "./bin/ModalBox.d.ts",
