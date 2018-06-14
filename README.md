@@ -48,7 +48,7 @@ Specify if you wish to close the modal box when the overlay (black background) i
 Type : `string`
 Specify that you wish to add a prefix to the class name of the modal box container, to not clash with existing css in the page
     
-### button
+### buttons
 Type : `number`
 Specify the button you wish to create for the modal box.
 
@@ -65,6 +65,22 @@ Can use multiple button like so :
     var modalBox = Coveo.ModalBox.open(content, {
         buttons: Coveo.ModalBox.BUTTON.OK | Coveo.ModalBox.BUTTON.APPLY | Coveo.ModalBox.BUTTON.CANCEL
     });
+
+### validation
+Type: `(button: BUTTON) => boolean`
+Specify a validation function, which receives the button that was pressed. If the validation function return true, the modal box closes, otherwise it stays open.
+
+### title
+Type: `string | HTMLElement`
+Specify the title of the modal box.
+
+### body
+Type: `HTMLElement`
+Specify the content that you wish to put inside the modal box.
+
+### sizeMod
+Type: `small | normal | big`
+Determines the size for the modal box. Leaving this option unspecified is like using `normal`.
 
 ## ModalBox object
 

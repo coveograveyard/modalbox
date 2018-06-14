@@ -81,9 +81,9 @@ export interface Options {
    */
   body?: HTMLElement;
   /**
-   * The size for the modal box
+   * The size for the modal box. Leaving this option unspecified is like using 'normal'.
    */
-  sizeMod: 'small' | 'normal' | 'big'
+  sizeMod?: 'small' | 'normal' | 'big'
 }
 
 var closeFunctions: { (button?: BUTTON, forceClose?: boolean): boolean }[] = [];
